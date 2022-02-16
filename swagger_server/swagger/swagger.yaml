@@ -101,15 +101,26 @@ components:
         student_id:
           type: number
           format: integer
+          example: 1
         first_name:
           type: string
           example: Dylan
         last_name:
           type: string
+          example: Kieft
+        gradeRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/GradeRecord'
       example:
-        student_id: 0.80082819046101150206595775671303272247314453125
-        last_name: last_name
+        student_id: 1
+        last_name: Kieft
         first_name: Dylan
+        gradeRecords:
+        - grade: 0.8008282
+          subject_name: Math
+        - grade: 0.8008282
+          subject_name: Math
     GradeRecord:
       required:
       - grade
@@ -118,9 +129,13 @@ components:
       properties:
         subject_name:
           type: string
+          example: Math
         grade:
           maximum: 10
           minimum: 0
           type: number
           format: float
+      example:
+        grade: 0.8008282
+        subject_name: Math
 
